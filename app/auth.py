@@ -13,9 +13,17 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
 
+
+
         if username in USERS and USERS[username] == password:
-            session["user"] = username
-            return redirect(url_for("dashboard"))
+         
+         session.clear()
+
+    # Intentionally NOT clearing or regenerating session
+         session["authenticated"] = True
+         session["user"] = username
+         return redirect(url_for("dashboard"))
+
         else:
             error = "Invalid credentials"
 
@@ -24,4 +32,4 @@ def login():
 
 def logout():
     session.pop("user", None)
-    return redirect(url_for("login"))
+    return redirect(url_for("login_route"))
