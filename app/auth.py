@@ -14,7 +14,6 @@ def login():
         password = request.form.get("password")
 
 
-
         if username in USERS and USERS[username] == password:
          
          session.clear()

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+    <p>Theme: {{ theme }}</p>
+
+    <a href="{{ url_for('profile_route', theme='light') }}">Light Theme</a> |
+    <a href="{{ url_for('profile_route', theme='dark') }}">Dark Theme</a>
+<br>
+     <a href="/logout">Logout</a>
+</body>
+</html>
